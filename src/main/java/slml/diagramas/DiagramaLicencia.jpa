@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<jpa:entity-mappings jaxb-support="false" id="_14235043478381" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:ns4="http://nbmodeler.java.net" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<jpa:entity-mappings jaxb-support="false" id="_14235043478381" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:ns4="http://nbmodeler.java.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <jpa:entity class="licencia" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423504474581">
         <jpa:attributes>
             <jpa:id name="id" attribute-type="Long" visibile="true" id="_142350465416513">
@@ -214,13 +214,13 @@
                 <Bounds x="741.0" y="27.0" width="160.0" height="54.0"/>
             </shape>
             <shape elementRef="_1423504541241" id="_1423504541241_gui">
-                <Bounds x="769.0" y="235.0" width="132.0" height="54.0"/>
+                <Bounds x="741.0" y="183.0" width="132.0" height="54.0"/>
             </shape>
             <shape elementRef="_1423504557065" id="_1423504557065_gui">
                 <Bounds x="339.0" y="52.0" width="167.0" height="86.0"/>
             </shape>
             <shape elementRef="_1423504573114" id="_1423504573114_gui">
-                <Bounds x="29.0" y="164.0" width="166.0" height="86.0"/>
+                <Bounds x="29.0" y="167.0" width="166.0" height="86.0"/>
             </shape>
             <shape elementRef="_1423504588739" id="_1423504588739_gui">
                 <Bounds x="7.0" y="338.0" width="160.0" height="126.0"/>
@@ -238,22 +238,22 @@
                 <Bounds x="433.0" y="464.0" width="207.0" height="106.0"/>
             </shape>
             <shape elementRef="_1423512131019" id="_1423512131019_gui">
-                <Bounds x="565.0" y="179.0" width="176.0" height="86.0"/>
+                <Bounds x="506.0" y="167.0" width="176.0" height="86.0"/>
             </shape>
             <shape elementRef="_1423515049650" id="_1423515049650_gui">
                 <Bounds x="-222.0" y="12.0" width="166.0" height="198.0"/>
             </shape>
             <shape elementRef="_1423515307810" id="_1423515307810_gui">
-                <Bounds x="-220.0" y="125.0" width="128.0" height="54.0"/>
+                <Bounds x="-217.0" y="235.0" width="128.0" height="54.0"/>
             </shape>
             <shape elementRef="_1423515319806" id="_1423515319806_gui">
-                <Bounds x="-222.0" y="209.0" width="170.0" height="54.0"/>
+                <Bounds x="-226.0" y="317.0" width="170.0" height="54.0"/>
             </shape>
             <shape elementRef="_1423515609757" id="_1423515609757_gui">
-                <Bounds x="-220.0" y="319.0" width="145.0" height="54.0"/>
+                <Bounds x="-217.0" y="410.0" width="145.0" height="54.0"/>
             </shape>
             <shape elementRef="_1423515723002" id="_1423515723002_gui">
-                <Bounds x="-214.0" y="464.0" width="155.0" height="54.0"/>
+                <Bounds x="-222.0" y="546.0" width="155.0" height="54.0"/>
             </shape>
         </plane>
     </jpa:diagram>
