@@ -7,6 +7,7 @@
                 <jpa:generated-value strategy="SEQUENCE" generator="sec_licencia"/>
                 <jpa:sequence-generator name="sec_licencia" sequence-name="" catalog="" schema="" initial-value="1" allocation-size="50"/>
             </jpa:id>
+            <jpa:many-to-one name="conductor1" target-entity="conductor" primaryKey="true" connected-entity-id="_1423504557065" visibile="true" id="_142383595971950"/>
         </jpa:attributes>
     </jpa:entity>
     <jpa:entity class="persona" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423504518235">
@@ -24,15 +25,45 @@
                 <jpa:generated-value strategy="SEQUENCE" generator="sec_papeleta"/>
                 <jpa:sequence-generator name="sec_papeleta" sequence-name="" catalog="" schema="" initial-value="1" allocation-size="50"/>
             </jpa:id>
+            <jpa:basic name="attribute1" attribute-type="String" visibile="true" id="_142383709508958">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="attribute2" attribute-type="String" visibile="true" id="_142383709755259">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="attribute3" attribute-type="String" visibile="true" id="_142383709809260"/>
+            <jpa:basic name="attribute4" attribute-type="String" visibile="true" id="_142383709832761">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="acta_generada" attribute-type="boolean" visibile="true" id="_142383709852362">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="fecha" attribute-type="String" visibile="true" id="_142383709872463">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:many-to-one name="codigo_transito1" target-entity="codigo_transito" primaryKey="true" connected-entity-id="_1423834932671" visibile="true" id="_142383532620647"/>
+            <jpa:many-to-one name="ordenanza_municipal1" target-entity="ordenanza_municipal" primaryKey="true" connected-entity-id="_1423834958948" visibile="true" id="_142383540463249"/>
+            <jpa:many-to-one name="licencia1" target-entity="licencia" optional="true" primaryKey="true" connected-entity-id="_1423504474581" visibile="true" id="_142383670212553">
+                <jpa:join-table/>
+            </jpa:many-to-one>
         </jpa:attributes>
     </jpa:entity>
-    <jpa:entity class="pago" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423504541241">
+    <jpa:entity class="parametros_papeletas" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423504541241">
         <jpa:attributes>
-            <jpa:id name="idPago" attribute-type="Long" visibile="true" id="_142350475084116">
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_142350475084116">
                 <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
                 <jpa:generated-value strategy="SEQUENCE" generator="sec_pago"/>
                 <jpa:sequence-generator name="sec_pago" sequence-name="" catalog="" schema="" initial-value="1" allocation-size="50"/>
             </jpa:id>
+            <jpa:basic name="monto_uit" attribute-type="String" visibile="true" id="_142383512274746">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="plazo_de_gracia" attribute-type="String" visibile="true" id="_142383677679354">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="porcentaje_descuento" attribute-type="String" visibile="true" id="_142383688063256">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
         </jpa:attributes>
     </jpa:entity>
     <jpa:entity class="conductor" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423504557065">
@@ -84,7 +115,10 @@
                 <jpa:generated-value strategy="SEQUENCE" generator="sec_vehiculo"/>
                 <jpa:sequence-generator name="sec_vehiculo" sequence-name="" catalog="" schema="" initial-value="1" allocation-size="50"/>
             </jpa:id>
-            <jpa:many-to-one name="solicitante_id" target-entity="conductor" optional="true" primaryKey="true" connected-entity-id="_1423504557065" visibile="true" id="_142351005945435">
+            <jpa:many-to-one name="conductor_id" target-entity="conductor" optional="true" primaryKey="true" connected-entity-id="_1423504557065" visibile="true" id="_142351005945435">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="propietario_id" target-entity="propietario" optional="true" primaryKey="true" connected-entity-id="_1423512131019" visibile="true" id="_142383603543252">
                 <jpa:join-table/>
             </jpa:many-to-one>
         </jpa:attributes>
@@ -99,6 +133,7 @@
             <jpa:many-to-one name="solicitante_id" target-entity="conductor" optional="true" primaryKey="true" connected-entity-id="_1423504557065" visibile="true" id="_142350996214034">
                 <jpa:join-table/>
             </jpa:many-to-one>
+            <jpa:many-to-one name="tipo_tramite1" target-entity="tipo_tramite" primaryKey="true" connected-entity-id="_1423834496196" visibile="true" id="_142383459973134"/>
         </jpa:attributes>
     </jpa:entity>
     <jpa:entity class="requisito_tramite" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423510568542">
@@ -111,9 +146,7 @@
             <jpa:many-to-one name="requisito_id" target-entity="requisito" optional="true" primaryKey="true" connected-entity-id="_1423504588739" visibile="true" id="_142351164959439">
                 <jpa:join-table/>
             </jpa:many-to-one>
-            <jpa:many-to-one name="tramite_id" target-entity="tramite" optional="true" primaryKey="true" connected-entity-id="_1423504616098" visibile="true" id="_142351165724840">
-                <jpa:join-table/>
-            </jpa:many-to-one>
+            <jpa:many-to-one name="tramite1" target-entity="tramite" primaryKey="true" connected-entity-id="_1423504616098" visibile="true" id="_142383794926574"/>
         </jpa:attributes>
     </jpa:entity>
     <jpa:entity class="tramite_licencia" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423511754104">
@@ -123,6 +156,9 @@
                 <jpa:generated-value strategy="SEQUENCE" generator="sec_tramite"/>
                 <jpa:sequence-generator name="sec_tramite" sequence-name="" catalog="" schema="" initial-value="1" allocation-size="50"/>
             </jpa:id>
+            <jpa:basic name="descripcion" attribute-type="String" visibile="true" id="_142383491039136">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
             <jpa:many-to-one name="tramite_id" target-entity="tramite" optional="true" primaryKey="true" connected-entity-id="_1423504616098" visibile="true" id="_142351179274544">
                 <jpa:join-table/>
             </jpa:many-to-one>
@@ -202,43 +238,123 @@
             </jpa:id>
         </jpa:attributes>
     </jpa:entity>
+    <jpa:entity class="tipo_tramite" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423834496196">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_142383451836032">
+                <jpa:column unique="true" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:basic name="descripcion" attribute-type="String" visibile="true" id="_142383453464233">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="codigo_transito" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423834932671">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_142383499080240">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:basic name="porcentaje_ui" attribute-type="String" visibile="true" id="_142383502063942">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="descripcion" attribute-type="String" visibile="true" id="_142383505268144">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="posee_descuento" attribute-type="boolean" visibile="true" id="_142384143109344">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ordenanza_municipal" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423834958948">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_142383500329541">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:basic name="porcentaje_ui" attribute-type="String" visibile="true" id="_142383503950743">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="descripcion" attribute-type="String" visibile="true" id="_142383508212245">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="posee_descuento" attribute-type="String" visibile="true" id="_142384148550845">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="pago_efectuado" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423836935474">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_142383714843464">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:basic name="monto_a_pagar" attribute-type="String" visibile="true" id="_142383715561265">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="descuento_efectivo" attribute-type="boolean" visibile="true" id="_142383724608267">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="fecha" attribute-type="String" visibile="true" id="_142384172740548">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:many-to-one name="papeleta1" target-entity="papeleta" optional="true" primaryKey="true" connected-entity-id="_1423504529883" visibile="true" id="_142383729422368">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="ticket_pago1" target-entity="ticket_pago" primaryKey="true" connected-entity-id="_1423837432382" visibile="true" id="_142383763443773"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ticket_pago" jaxb-root-element="false" static-metamodel="false" visibile="true" minimized="false" id="_1423837432382">
+        <jpa:attributes>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_142383747950470">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:generated-value/>
+            </jpa:id>
+            <jpa:basic name="fecha_pago" attribute-type="String" visibile="true" id="_142384158315646">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="monto_total" attribute-type="String" visibile="true" id="_142384160739047">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
     <jpa:diagram id="_14235043478392">
         <plane elementRef="_14235043478381" id="_14235043478403_p">
             <shape elementRef="_1423504474581" id="_1423504474581_gui">
-                <Bounds x="655.0" y="610.0" width="149.0" height="54.0"/>
+                <Bounds x="696.0" y="652.0" width="149.0" height="86.0"/>
             </shape>
             <shape elementRef="_1423504518235" id="_1423504518235_gui">
                 <Bounds x="12.0" y="12.0" width="155.0" height="54.0"/>
             </shape>
             <shape elementRef="_1423504529883" id="_1423504529883_gui">
-                <Bounds x="741.0" y="27.0" width="160.0" height="54.0"/>
+                <Bounds x="845.0" y="12.0" width="196.0" height="258.0"/>
             </shape>
             <shape elementRef="_1423504541241" id="_1423504541241_gui">
-                <Bounds x="741.0" y="183.0" width="132.0" height="54.0"/>
+                <Bounds x="512.0" y="12.0" width="257.0" height="126.0"/>
             </shape>
             <shape elementRef="_1423504557065" id="_1423504557065_gui">
-                <Bounds x="339.0" y="52.0" width="167.0" height="86.0"/>
+                <Bounds x="311.0" y="61.0" width="167.0" height="86.0"/>
             </shape>
             <shape elementRef="_1423504573114" id="_1423504573114_gui">
                 <Bounds x="29.0" y="167.0" width="166.0" height="86.0"/>
             </shape>
             <shape elementRef="_1423504588739" id="_1423504588739_gui">
-                <Bounds x="7.0" y="338.0" width="160.0" height="126.0"/>
+                <Bounds x="-39.0" y="436.0" width="160.0" height="126.0"/>
             </shape>
             <shape elementRef="_1423504603553" id="_1423504603553_gui">
-                <Bounds x="565.0" y="289.0" width="154.0" height="86.0"/>
+                <Bounds x="653.0" y="289.0" width="154.0" height="106.0"/>
             </shape>
             <shape elementRef="_1423504616098" id="_1423504616098_gui">
-                <Bounds x="247.0" y="285.0" width="148.0" height="86.0"/>
+                <Bounds x="281.0" y="297.0" width="148.0" height="106.0"/>
             </shape>
             <shape elementRef="_1423510568542" id="_1423510568542_gui">
-                <Bounds x="29.0" y="546.0" width="218.0" height="106.0"/>
+                <Bounds x="29.0" y="652.0" width="218.0" height="106.0"/>
             </shape>
             <shape elementRef="_1423511754104" id="_1423511754104_gui">
-                <Bounds x="433.0" y="464.0" width="207.0" height="106.0"/>
+                <Bounds x="412.0" y="462.0" width="207.0" height="138.0"/>
             </shape>
             <shape elementRef="_1423512131019" id="_1423512131019_gui">
-                <Bounds x="506.0" y="167.0" width="176.0" height="86.0"/>
+                <Bounds x="552.0" y="167.0" width="176.0" height="86.0"/>
             </shape>
             <shape elementRef="_1423515049650" id="_1423515049650_gui">
                 <Bounds x="-222.0" y="12.0" width="166.0" height="198.0"/>
@@ -254,6 +370,21 @@
             </shape>
             <shape elementRef="_1423515723002" id="_1423515723002_gui">
                 <Bounds x="-222.0" y="546.0" width="155.0" height="54.0"/>
+            </shape>
+            <shape elementRef="_1423834496196" id="_1423834496196_gui">
+                <Bounds x="29.0" y="307.0" width="182.0" height="86.0"/>
+            </shape>
+            <shape elementRef="_1423834932671" id="_1423834932671_gui">
+                <Bounds x="1153.0" y="494.0" width="206.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_1423834958948" id="_1423834958948_gui">
+                <Bounds x="886.0" y="494.0" width="246.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_1423836935474" id="_1423836935474_gui">
+                <Bounds x="1199.0" y="22.0" width="210.0" height="178.0"/>
+            </shape>
+            <shape elementRef="_1423837432382" id="_1423837432382_gui">
+                <Bounds x="1329.0" y="341.0" width="178.0" height="106.0"/>
             </shape>
         </plane>
     </jpa:diagram>
